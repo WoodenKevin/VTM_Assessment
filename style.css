@@ -1,21 +1,24 @@
+/* 目前仅适配PC端（特别是1920*1080分辨率）的显示效果 */
+/* 目前仅针对思源黑体进行适配，微软雅黑测试中 */
+
+
 body
 {
-    width: 100%;
+    width: 100%; /* 页面宽度为显示器宽度 */ 
     margin: 0;
-    letter-spacing: 1px;
+    letter-spacing: 1px; /* 字符间距1px */
     font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif; 
+    /* 字体fallback */
 }
 
 
-
 /* 顶端悬浮条 */
-.topbg
+.topbg /* 悬浮条背景 */
 {
     width: 100%;
     height: 36px;
-    position: fixed;
-    /* 图层堆叠优先级最高 */
-    z-index: 3;
+    position: fixed; /* 固定在顶部 */
+    z-index: 3; /* 图层堆叠优先级最高 */
     background-color: #3d3d3d;
 }
 .top
@@ -24,51 +27,63 @@ body
     height: 36px;
     margin: 0;
     padding-left: 10%;
-    padding-right: 10%;
+    padding-right: 10%; /* 设置中间内容边界 */
     line-height: 36px;
     top: 0;
-    font-weight: bold;
+    font-weight: 800; /* 适配 思源黑体Heavy */
     color: white;
-    /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
-    box-sizing: border-box; 
+    box-sizing: border-box; /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
 }
 .top div
 {
     height: 36px;
     margin: 0;
     float: left;
-    /* 设置垂直居中 */
-    display: flex;
-    align-items: center;
+    display: flex; 
+    align-items: center; /* 设置垂直居中 */
 }
 .top img
 {
-    margin-right: 10px;
+    margin-right: 8px; /* 图标与右侧文字留出8px空隙 */
 }
-div#contractinfo
+#contractinfo
 {
     width: 700px;
 }
-div#tel
+#tel
+{
+    width: 185px;
+}
+#email
+{
+    width: 260px;
+}
+#welcome
 {
     width: 200px;
+    margin: auto;
 }
-div#email
+#user
 {
-    width: 320px;
-}
-div.welcome
-{
-    width: 100px;
-}
-div#user
-{
-    width: 120px;
+    width: 112px;
     float: right;
 }
-div#login
+#login
 {
-    margin-right: 10px;
+    margin-right: 10px; /* “登录”及“注册”中间留出10px空隙 */
+}
+#user a
+{
+    color: #ffffff;
+    text-decoration: none;
+}
+#user a:hover
+{
+    color: #1ba19d;
+}
+#user a:visited
+{
+    text-decoration: none;
 }
 
 
@@ -76,8 +91,8 @@ div#login
 .side
 {
     width: 75px;
-    height: 330px;
-    margin-top: -165px;
+    height: 306px;
+    margin-top: -153px;
     top: 50%;
     right: 0;
     position: fixed;
@@ -86,7 +101,7 @@ div#login
 .sidearea
 {
     width: 75px;
-    height: 100px;
+    height: 92px;
     margin: 5px 0;
     background-color: #6d6c6c;
     color: #ffffff;
@@ -94,34 +109,100 @@ div#login
 }
 #sidepic
 {
-    height: 71px;
-    padding-top: 11px;
-    padding-bottom: 5px;
+    height: 67px;
+    padding-top: 9px;
+    padding-bottom: 3px;
     top: 0;
     text-align: center;
     box-sizing: border-box;
 }
 #sidetext
 {
-    height: 29px;
-    padding-top: 4px;
-    padding-bottom: 11px;
+    height: 25px;
+    padding-top: 2px;
+    padding-bottom: 9px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 300; /* 适配 思源黑体Light */ 
     line-height: 14px;
     text-align: center;
     box-sizing: border-box;
 }
-
+/* 二维码弹窗 */
+.popup
+{
+    width: 235px;
+    height: 275px;
+    margin-top: -235px;
+    top: 50%;
+    right: 75px;
+    position: fixed;
+    z-index: 2;
+}
+.qr
+{
+    width: 220px;
+    height: 275px;
+    margin: 0;
+    border-radius: 20px;
+    background-color: #137b78;
+    float: left;
+}
+#wechatqr
+{
+    width: 220px;
+    height: 204px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#wechatqr img
+{
+    width: 180px;
+    height: 180px;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+#saoma
+{
+    width: 220px;
+    height: 71px;
+    padding-top: 3px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 300; /* 适配 思源黑体Light */ 
+    color: #ffffff;
+    line-height: 24px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.arrow
+{
+    width: 15px;
+    height: 275px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    display: flex; 
+    align-items: center;
+}
+#triangle
+{
+    width: 0px;
+    height: 0px;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #137b78;
+    border-bottom: 14px solid transparent;
+}
 
 
 /* 其余内容 */
 .content
 {
-    transform: translateY(36px);
+    transform: translateY(36px); /* 其余内容整体向下偏移，避免被悬浮条遮挡 */
 }
+
+
 /* 标题栏 */
-.headbg
+.headbg /* 标题栏背景 */
 {
     width: 100%;
     height: 120px;
@@ -132,26 +213,26 @@ div#login
     width: 100%;
     height: 120px;
     padding-left: 10%;
-    padding-right: 10%;    
-    /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
-    box-sizing: border-box;
+    padding-right: 10%;
+    font-weight: 800; /* 适配 思源黑体Heavy */    
+    box-sizing: border-box; /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
 }
 .head div
 {
-    margin: 0;
-    float: left;
-    /* 设置垂直居中 */
     display: flex;
-    align-items: center;
+    align-items: center; /* 设置垂直居中 */
 }
-#logo
+.logo
 {
     width: 87px;
     height: 120px;
+    margin-right: 10px; /* logo与右侧文字留出10px空隙 */
+    float: left;
 }
 #yechine
 {
     width: 250px;
+    float: left;
     display: block;
 }
 #brand
@@ -161,7 +242,6 @@ div#login
     margin-top: 25px;
     margin-bottom: 4px;
     font-size: 45px;
-    font-weight: 900;
     line-height: 45px;
 }
 #slogan
@@ -171,36 +251,48 @@ div#login
     margin-top: 3px;
     margin-bottom: 25px;
     font-size: 18px;
-    font-weight: 900;
     line-height: 18px;
 }
-#navi
+/* 导航栏 */
+.navi
 {
     height: 120px;
     float: right;
 }
-#navi ul
+.navi ul
 {
     margin: 0;
     padding: 0;
     float: left;
     list-style-type: none;
 }
-#navi li
+.navi li
 {
     margin: 10px;
     font-size: 18px;
-    font-weight: 900;
     line-height: 18px;
     display: inline;
 }
-.activepage
+.navi a
+{
+    color: #000000;
+    text-decoration: none;
+}
+.navi a:hover
+{
+    color: #6d6c6c;
+}
+.navi a:visited
+{
+    text-decoration: none;
+}
+#activepage
 {
     color: #1ba19d;
 }
-/**********/
+
+
 /* banner */
-/**********/
 .banner
 {
     width: 100%;
@@ -211,24 +303,22 @@ div#login
     width: 100%;
     height: auto;
 }
-/********/
 /* 搜索 */
-/********/
 .search
 {
-    width: 600px;
+    width: 700px;
     margin-left: -300px;
-    top: 45%;
+    top: 55%;
     left: 50%;
     position: absolute;
     z-index: 1;   
 }
 .search *
 {
-    width: 600px;
+    width: 700px;
     height: 45px;
     margin: 10px auto;
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* 字符间距改为2px */
 }
 .search form *
 {
@@ -236,112 +326,139 @@ div#login
 }
 #searchall
 {
-    bottom: 40%;
+    bottom: 35%;
 }
 #searchbyname
 {
     bottom: 20%;
 }
-.search button
+.search button /* 搜索按钮 */
 {
-    width: 100px;
-    height: 45px;
+    width: 115px;
+    height: 50px;
     border: 0;
     padding: 0;
     background-color:  #1ba19d;
-    font-size: 12px;
-    font-weight: bold;
+    font-weight: 800; /* 适配 思源黑体Heavy */
     line-height: 45px;
     color: white;
+}
+#buttonpic
+{
+    width: 25px;
+    height: 50px;
+    margin: 0 0 0 10px;
+    display: flex;
     align-items: center;
 }
 #searchpic
 {
     width: 25px;
     height: 25px;
+    margin: 0;
+}
+#buttontext
+{
+    width: 70px;
+    height:50px;
+    margin: 0 10px 0 0;
+    line-height: 50px;
+    text-align: center;
 }
 .search input
 {
-    width: 500px;
-    height: 45px;
+    width: 585px;
+    height: 50px;
     border: 0;
     padding: 0px 10px 0px 10px;
-    font-size: 12px;
+    font-weight: 200; /* 适配 思源黑体ExtraLight */
     line-height: 45px;
     box-sizing: border-box;
 }
 #hot
 {
     font-size: 12px;
+    font-weight: 200; /* 适配 思源黑体ExtraLight */
     color: #ffffff;
 }
-/***********/
+
+
 /* 更多资讯 */
-/***********/
 .news
 {
     width: 100%;
-    height: 490px;
+    height: 440px;
     margin-top: 45px;
     padding-left: 10%;
     padding-right: 10%;    
-    /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
-    box-sizing: border-box;
+    box-sizing: border-box; /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
 }
 .title
 {
     height: 30px;
     margin-bottom: 10px;
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 800; /* 适配 思源黑体Heavy */
     line-height: 30px;
     text-align: center;
     color: #1ba19d;
 }
 .category
 {
-    width: 13%;
+    width: 15%;
+    height: 240px;
     float: left;
+    box-sizing: border-box;
 }
-.category ul
+.category div
 {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-.category li
-{
-    width: 100%;
-    height: 45px;
-    margin-bottom: 5px;
+    height: 60px;
+    border-style: solid;
+    border-color: #c6c6c6;
+    border-width: 2px 0 2px 2px;
     background-color: #3d3d3d;
     display: block;
     color: #ffffff;
-    font-weight: bold;
-    line-height: 45px;
+    font-size: 20px;
+    font-weight: 800; /* 适配 思源黑体Heavy */
+    line-height: 60px;
     text-align: center;
+    box-sizing: border-box;
 }
-#activecat
+#activetab
 {
-    border-style: solid;
-    border-color: #c6c6c6;
-    border-left-width: 2px;
-    border-top-width: 2px;
-    border-right-width: 1px;
-    border-bottom-width: 2px;
     background-color: #ffffff;
     color: #000000;
     box-sizing: border-box;
 }
-.brief
+.briefs
 {
-    width: 86.65%;
+    width: 85%;
     height: 400px;
     border-style: solid;
     border-color: #c6c6c6;
     border-width: 2px;
+    position: relative;
     float: left;
+    box-sizing: border-box;
+}
+.showbrief
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.hiddenbrief
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    display: none;
 }
 .b
 {
@@ -374,26 +491,27 @@ div#login
 {
     width: 55%;
     height: 75%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-right: 5%;
     padding-top: 5%;
+    font-weight: 300; /* 适配 思源黑体Light */  
 }
 #learnmore
 {
     width: 55%;
     height: 25%;
-    padding-right: 3%;
+    padding-right: 5%;
+    font-weight: 300; /* 适配 思源黑体Light */ 
     color: #1ba19d;
     text-align: right;
 }
-/******/
+
+
 /*介绍*/
-/*****/
 .introduction
 {
     width: 100%;
     height: 240px;
-    margin-top: 55px;
+    margin-top: 45px;
     margin-bottom: 75px;
     padding-left: 10%;
     padding-right: 10%;    
@@ -430,7 +548,7 @@ div#login
 {
     width: 25%;
     height: 100%;
-    padding: 15% 3% 15% 12%;
+    padding: 15% 5% 15% 10%;
 }
 #pic img
 {
@@ -443,7 +561,7 @@ div#login
     margin-top: 36px;
     margin-bottom: 4px;
     font-size: 25px;
-    font-weight: 900;
+    font-weight: 800; /* 适配 思源黑体Heavy */
     line-height: 25px;
     box-sizing: content-box;
 }
@@ -453,7 +571,7 @@ div#login
     margin-top: 5px;
     margin-bottom: 36px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 300; /* 适配 思源黑体Light */ 
     line-height: 14px;
     box-sizing: content-box;
 }

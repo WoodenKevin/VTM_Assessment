@@ -11,7 +11,7 @@
 
 <body>
 
-    <!--顶部悬浮条-->
+    <!-- 顶部悬浮条 -->
     <div class="topbg">
         <div class="top">
             <div id="contractinfo">
@@ -21,15 +21,15 @@
             <div id="welcome">欢迎来到热泉港!</div>
             <div id="user">
                 <div id="avatar"><img src="image/user.png"></div>
-                <div id="login">登录</div>
-                <div id="signup">注册</div>
+                <div id="login"><a href="LogIn.html">登录</a></div>
+                <div id="signup"><a href="SignUp.html">注册</a></div>
             </div>
         </div>
     </div>
 
-    <!--侧边悬浮条-->
+    <!-- 侧边悬浮条 -->
     <div class="side">
-        <div class="sidearea">
+        <div onmouseover="showpopup()" onmouseout="hidepopup()" class="sidearea">
             <div id="sidepic"><img src="image/qrlogo.png"></div>
             <div id="sidetext">二维码</div>
         </div>
@@ -42,26 +42,62 @@
             <div id="sidetext">回到顶部</div>
         </div>
     </div>
+    <!-- 二维码弹窗 -->
+    <div class="popup" style="display: none;">
+        <div class="qr">
+            <div id="wechatqr">
+                <img src="image/qr.png">
+            </div>
+            <div id="saoma">
+                扫描二维码关注<br>热泉港公众号
+            </div>
+        </div>
+        <div class="arrow">
+            <div id="triangle"></div>
+        </div>
+    </div>
 
-    <!--其余内容-->
+    <!-- 二维码弹窗脚本 -->
+    <script>
+        function showpopup()
+        {
+            document.getElementsByClassName('popup')[0].style.display = 'block';
+        }
+        function hidepopup()
+        {
+            document.getElementsByClassName('popup')[0].style.display = 'none';
+        }
+    </script>
+
+    <!-- 其余内容 -->
     <div class="content">
 
-        <!--标题栏-->
+        <!-- 标题栏 -->
         <div class="headbg">
             <div class="head">
-                <div id="logo"><img src="image/yechine_logo.png"></div>
+                <div class="logo"><img src="image/yechine_logo.png"></div>
                 <div id="yechine">
                     <div id="brand">热泉港</div>
                     <div id="slogan">生命科学仪器试剂耗材经销商</div>
                 </div>
-                <!--导航栏-->
-                <div id="navi">
+                <!-- 导航栏 -->
+                <div class="navi">
                     <ul>
-                        <li class="activepage">Yechine首页</li>
-                        <li>公司简介</li>
-                        <li>人才招聘</li>
-                        <li>公告通知</li>
-                        <li>联系我们</li>
+                        <li>
+                            <a id="activepage" href="Homepage.html">Yechine首页</a>
+                        </li> 
+                        <li>
+                            <a href="Introduction.html">公司简介</a>
+                        </li>
+                        <li>
+                            <a href="Recruitment.html">人才招聘</a>
+                        </li>
+                        <li>
+                            <a href="Notice.html">公告通知</a>
+                        </li>
+                        <li style="margin-right: 0;"> <!-- 取消右外边框与边界对齐 -->
+                            <a href="ContactUs.html">联系我们</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -73,12 +109,26 @@
             <!--搜索板块-->
             <div class="search">
                 <form id="searchall">
-                    <button type="submit"><img id="searchpic" src="image/search.png">全部搜索</button>
-                    <input type="text" value="请输入您要搜索的产品分类、型号">
+                    <button type="submit">
+                        <div id="buttonpic">
+                            <img id="searchpic" src="image/search.png">
+                        </div>
+                        <div id="buttontext">
+                            全部搜索
+                        </div>
+                    </button>
+                    <input type="text" placeholder="请输入您要搜索的产品分类、型号">
                 </form>
                 <form id="searchbyname">
-                    <button type="submit"><img id="searchpic" src="image/search.png">名称搜索</button>
-                    <input type="text" value="请输入您要搜索的产品名称">
+                    <button type="submit">
+                        <div id="buttonpic">
+                            <img id="searchpic" src="image/search.png">
+                        </div>
+                        <div id="buttontext">
+                            名称搜索
+                        </div>
+                    </button>
+                    <input type="text" placeholder="请输入您要搜索的产品名称">
                 </form>
                 <div id="hot">
                     HOT关键词：
@@ -94,52 +144,169 @@
             </div>
         </div>
 
-        <!--简讯-->
+        <!-- 简讯 -->
         <div class="news">
             <div class="title">
                 / 更多资讯 /
             </div>
             <div class="category">
-                <ul>
-                    <li id="activecat">尖端科技</li>
-                    <li>网络研讨会</li>
-                    <li>食药资讯</li>
-                    <li>最新应用</li>
-                </ul>
+                    <div onmouseover="changetab(0)" id="activetab">尖端科技</div>
+                    <div onmouseover="changetab(1)">网络研讨会</div>
+                    <div onmouseover="changetab(2)">食药资讯</div>
+                    <div onmouseover="changetab(3)">最新应用</div>
             </div>
-            <div class="brief">
-                <div class="b" id="b1">
-                    <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
-                    <div id="bt">
-                        XTrac智能液体萃取平台可用于固体、液体中目标物质的自动提取，过滤实验，可用于农业、烟草、化学、食品、制药等行业。
+            <div class="briefs">
+                <!-- 尖端科技 -->
+                <div class="showbrief brief">
+                    <div class="b">
+                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                        <div id="bt">
+                            XTrac智能液体萃取平台可用于固体、液体中目标物质的自动提取，过滤实验，可用于农业、烟草、化学、食品、制药等行业。
+                        </div>
+                        <div id="learnmore">了解更多</div>
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                        <div id="bt">
+                            GraviTrac智能称量平台可用于大批量的称重、恒重实验，可用于制药、农业、烟草、化工、食品、制药等行业。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                        <div id="bt">
+                            MultiTasker智能多功能样品制备平台用于前处理样品的制备，可自动完成液体化的处理，标样的制备、提取、过滤等实验，可用于制药、食品、农业、化学等行业。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                        <div id="bt">
+                            GraviTracPLUS智能称重分装平台用于多种固体样品的自动称量及分装，混合可用于化学、食品、制药等行业。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
                 </div>
-                <div class="b" id="b2">
-                    <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
-                    <div id="bt">
-                        GraviTrac智能称量平台可用于大批量的称重、恒重实验，可用于制药、农业、烟草、化工、食品、制药等行业。
+                <!-- 网络研讨会 -->
+                <div class="hiddenbrief brief">
+                    <div class="b">
+                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                        <div id="bt">
+                            网络研讨会1。
+                        </div>
+                        <div id="learnmore">了解更多</div>
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                        <div id="bt">
+                            网络研讨会2。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                        <div id="bt">
+                            网络研讨会3。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                        <div id="bt">
+                            网络研讨会4。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
                 </div>
-                <div class="b" id="b3">
-                    <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
-                    <div id="bt">
-                        MultiTasker智能多功能样品制备平台用于前处理样品的制备，可自动完成液体化的处理，标样的制备、提取、过滤等实验，可用于制药、食品、农业、化学等行业。
+                <!-- 食药资讯 -->
+                <div class="hiddenbrief brief">
+                    <div class="b">
+                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                        <div id="bt">
+                            食药资讯1。
+                        </div>
+                        <div id="learnmore">了解更多</div>
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                        <div id="bt">
+                            食药资讯2。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                        <div id="bt">
+                            食药资讯3。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                        <div id="bt">
+                            食药资讯4。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
                 </div>
-                <div class="b" id="b4">
-                    <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
-                    <div id="bt">
-                        GraviTracPLUS智能称重分装平台用于多种固体样品的自动称量及分装，混合可用于化学、食品、制药等行业。
+                <!-- 最新应用 -->
+                <div class="hiddenbrief brief">
+                    <div class="b">
+                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                        <div id="bt">
+                            最新应用1。
+                        </div>
+                        <div id="learnmore">了解更多</div>
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                        <div id="bt">
+                            最新应用2。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                        <div id="bt">
+                            最新应用3。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
+                    <div class="b">
+                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                        <div id="bt">
+                            最新应用4。
+                        </div>
+                        <div id="learnmore">了解更多</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!--介绍-->
+        <!-- 简讯tab切换脚本 -->
+        <script>
+            var tabs = document.getElementsByClassName('category')[0].getElementsByTagName('div');
+            var contents = document.getElementsByClassName('briefs')[0].getElementsByClassName('brief');
+
+            function changetab(index)
+            {
+                for (var i = 0; i < tabs.length; i++)
+                {
+                    if (i == index)
+                    {
+                        tabs[i].id = 'activetab';
+                        contents[i].className = 'showbrief brief';
+                    }
+                    else
+                    {
+                        tabs[i].id = 'commontab';
+                        contents[i].className = 'hiddenbrief brief';
+                    }
+                }
+            }
+        </script>
+
+        <!-- 介绍 -->
         <div>
             <div class="introduction">
                 <div class="left">
