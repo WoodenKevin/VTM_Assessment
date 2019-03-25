@@ -1,5 +1,4 @@
 /* 目前仅适配PC端（特别是1920*1080分辨率）的显示效果 */
-/* 目前仅针对思源黑体进行适配，微软雅黑测试中 */
 
 
 body
@@ -30,7 +29,7 @@ body
     padding-right: 10%; /* 设置中间内容边界 */
     line-height: 36px;
     top: 0;
-    font-weight: 800; /* 适配 思源黑体Heavy */
+    font-weight: 800; /* 适配 思源黑体Heavy 微软雅黑Bold */
     color: white;
     box-sizing: border-box; /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
 }
@@ -122,7 +121,7 @@ body
     padding-top: 2px;
     padding-bottom: 9px;
     font-size: 14px;
-    font-weight: 300; /* 适配 思源黑体Light */ 
+    font-weight: 300; /* 适配 思源黑体Light 微软雅黑Light */ 
     line-height: 14px;
     text-align: center;
     box-sizing: border-box;
@@ -168,7 +167,7 @@ body
     padding-top: 3px;
     padding-bottom: 20px;
     font-size: 18px;
-    font-weight: 300; /* 适配 思源黑体Light */ 
+    font-weight: 300; /* 适配 思源黑体Light 微软雅黑Light */ 
     color: #ffffff;
     line-height: 24px;
     text-align: center;
@@ -214,7 +213,7 @@ body
     height: 120px;
     padding-left: 10%;
     padding-right: 10%;
-    font-weight: 800; /* 适配 思源黑体Heavy */    
+    font-weight: 800; /* 适配 思源黑体Heavy 微软雅黑Bold */    
     box-sizing: border-box; /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
 }
 .head div
@@ -339,7 +338,7 @@ body
     border: 0;
     padding: 0;
     background-color:  #1ba19d;
-    font-weight: 800; /* 适配 思源黑体Heavy */
+    font-weight: 800; /* 适配 思源黑体Heavy 微软雅黑Bold */
     line-height: 45px;
     color: white;
 }
@@ -371,14 +370,14 @@ body
     height: 50px;
     border: 0;
     padding: 0px 10px 0px 10px;
-    font-weight: 200; /* 适配 思源黑体ExtraLight */
+    font-weight: 200; /* 适配 思源黑体ExtraLight 微软雅黑Light */
     line-height: 45px;
     box-sizing: border-box;
 }
 #hot
 {
     font-size: 12px;
-    font-weight: 200; /* 适配 思源黑体ExtraLight */
+    font-weight: 200; /* 适配 思源黑体ExtraLight 微软雅黑Light */
     color: #ffffff;
 }
 
@@ -398,7 +397,7 @@ body
     height: 30px;
     margin-bottom: 10px;
     font-size: 30px;
-    font-weight: 800; /* 适配 思源黑体Heavy */
+    font-weight: 800; /* 适配 思源黑体Heavy 微软雅黑Bold */
     line-height: 30px;
     text-align: center;
     color: #1ba19d;
@@ -421,7 +420,7 @@ body
     display: block;
     color: #ffffff;
     font-size: 20px;
-    font-weight: 800; /* 适配 思源黑体Heavy */
+    font-weight: 800; /* 适配 思源黑体Heavy 微软雅黑Bold */
     line-height: 60px;
     text-align: center;
     box-sizing: border-box;
@@ -493,14 +492,14 @@ body
     height: 75%;
     padding-right: 5%;
     padding-top: 5%;
-    font-weight: 300; /* 适配 思源黑体Light */  
+    font-weight: 300; /* 适配 思源黑体Light 微软雅黑Light */  
 }
 #learnmore
 {
     width: 55%;
     height: 25%;
     padding-right: 5%;
-    font-weight: 300; /* 适配 思源黑体Light */ 
+    font-weight: 300; /* 适配 思源黑体Light 微软雅黑Light */ 
     color: #1ba19d;
     text-align: right;
 }
@@ -515,8 +514,7 @@ body
     margin-bottom: 75px;
     padding-left: 10%;
     padding-right: 10%;    
-    /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
-    box-sizing: border-box;
+    box-sizing: border-box; /* 指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制 */
 }
 .introduction *
 {
@@ -561,7 +559,7 @@ body
     margin-top: 36px;
     margin-bottom: 4px;
     font-size: 25px;
-    font-weight: 800; /* 适配 思源黑体Heavy */
+    font-weight: 800; /* 适配 思源黑体Heavy  微软雅黑Bold*/
     line-height: 25px;
     box-sizing: content-box;
 }
@@ -571,7 +569,7 @@ body
     margin-top: 5px;
     margin-bottom: 36px;
     font-size: 14px;
-    font-weight: 300; /* 适配 思源黑体Light */ 
+    font-weight: 300; /* 适配 思源黑体Light 微软雅黑Light */ 
     line-height: 14px;
     box-sizing: content-box;
 }

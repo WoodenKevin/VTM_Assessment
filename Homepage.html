@@ -37,7 +37,7 @@
             <div id="sidepic"><img src="image/customerservice.png"></div>
             <div id="sidetext">在线客服</div>
         </div>
-        <div class="sidearea">
+        <div onclick="backtotop()" class="sidearea">
             <div id="sidepic"><img src="image/totop.png"></div>
             <div id="sidetext">回到顶部</div>
         </div>
@@ -66,6 +66,41 @@
         function hidepopup()
         {
             document.getElementsByClassName('popup')[0].style.display = 'none';
+        }
+    </script>
+
+    <!-- 回到顶部脚本 -->
+    <script>
+        // 利用定时器实现缓冲动画
+        function backtotopwithanimation()
+        {
+            // 返回与顶部的距离
+            var top = document.body.scrollTop || document.documentElement.scrollTop; // 兼容Chrome浏览器（只认document.body）
+            // 使与顶部距离的递减值逐渐减小，达到缓冲动画效果
+            // 除数越大，返回顶部的整体速度越慢
+            var speed = top / 4;
+
+            if (document.body.scrollTop != 0) // 兼容Chrome浏览器，document.body和document.documentElement中只有一个有值
+            {
+                // 与顶部的距离逐渐减小
+                document.body.scrollTop -= speed;
+            }
+            else
+            {
+                document.documentElement.scrollTop -= speed;
+            }
+
+            if (top == 0)
+            {
+                // 返回顶部后，清除定时器
+                clearInterval(timer);
+            }
+        }
+
+        function backtotop()
+        {
+            // 定义一个定时器
+            var timer = setInterval("backtotopwithanimation()", 30); 
         }
     </script>
 
