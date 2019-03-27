@@ -78,7 +78,7 @@
             var top = document.body.scrollTop || document.documentElement.scrollTop; // 兼容Chrome浏览器（只认document.body）
             // 使与顶部距离的递减值逐渐减小，达到缓冲动画效果
             // 除数越大，返回顶部的整体速度越慢
-            var speed = top / 4;
+            var speed = top / 5;
 
             if (document.body.scrollTop != 0) // 兼容Chrome浏览器，document.body和document.documentElement中只有一个有值
             {
@@ -100,45 +100,48 @@
         function backtotop()
         {
             // 定义一个定时器
-            timer = setInterval("backtotopwithanimation()", 30); 
+            timer = setInterval("backtotopwithanimation()", 20); 
         }
     </script>
 
-    <!-- 其余内容 -->
-    <div class="content">
+    <!-- 避免其余内容被顶部悬浮条遮挡 -->
+    <div style="height: 36px;"></div> 
 
-        <!-- 标题栏 -->
-        <div class="headbg">
-            <div class="head">
+    <!-- 标题栏 -->
+    <div class="headbg">
+        <div class="head">
+            <div class="brand">
                 <div class="logo"><img src="image/yechine_logo.png"></div>
                 <div id="yechine">
-                    <div id="brand">热泉港</div>
+                    <div id="brandname">热泉港</div>
                     <div id="slogan">生命科学仪器试剂耗材经销商</div>
                 </div>
-                <!-- 导航栏 -->
-                <div class="navi">
-                    <ul>
-                        <li>
-                            <a id="activepage" href="Homepage.html">Yechine首页</a>
-                        </li> 
-                        <li>
-                            <a href="Introduction.html">公司简介</a>
-                        </li>
-                        <li>
-                            <a href="Recruitment.html">人才招聘</a>
-                        </li>
-                        <li>
-                            <a href="Notice.html">公告通知</a>
-                        </li>
-                        <li style="margin-right: 0;"> <!-- 取消右外边框与边界对齐 -->
-                            <a href="ContactUs.html">联系我们</a>
-                        </li>
-                    </ul>
-                </div>
+            </div>
+            <!-- 导航栏 -->
+            <div class="navi">
+                <ul>
+                    <li>
+                        <a id="activepage" href="Homepage.html">Yechine首页</a>
+                    </li> 
+                    <li>
+                        <a href="Introduction.html">公司简介</a>
+                    </li>
+                    <li>
+                        <a href="Recruitment.html">人才招聘</a>
+                    </li>
+                    <li>
+                        <a href="Notice.html">公告通知</a>
+                    </li>
+                    <li style="margin-right: 0;"> <!-- 取消右外边框与边界对齐 -->
+                        <a href="ContactUs.html">联系我们</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
 
-        <!--banner-->
+    <!--banner-->
+    <div class="bannerbg">
         <div class="banner">
             <img src="image/banner.png">
             <!--搜索板块-->
@@ -178,219 +181,218 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 简讯 -->
-        <div class="news">
-            <div class="title">
-                / 更多资讯 /
+    <!-- 简讯 -->
+    <div class="news">
+        <div class="title">
+            / 更多资讯 /
+        </div>
+        <div class="category">
+                <div onmouseover="changetab(0)" id="activetab">尖端科技</div>
+                <div onmouseover="changetab(1)">网络研讨会</div>
+                <div onmouseover="changetab(2)">食药资讯</div>
+                <div onmouseover="changetab(3)">最新应用</div>
+        </div>
+        <div class="briefs">
+            <!-- 尖端科技 -->
+            <div class="showbrief brief">
+                <div class="b">
+                    <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                    <div id="bt">
+                        XTrac智能液体萃取平台可用于固体、液体中目标物质的自动提取，过滤实验，可用于农业、烟草、化学、食品、制药等行业。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                    <div id="bt">
+                        GraviTrac智能称量平台可用于大批量的称重、恒重实验，可用于制药、农业、烟草、化工、食品、制药等行业。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                    <div id="bt">
+                        MultiTasker智能多功能样品制备平台用于前处理样品的制备，可自动完成液体化的处理，标样的制备、提取、过滤等实验，可用于制药、食品、农业、化学等行业。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                    <div id="bt">
+                        GraviTracPLUS智能称重分装平台用于多种固体样品的自动称量及分装，混合可用于化学、食品、制药等行业。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
             </div>
-            <div class="category">
-                    <div onmouseover="changetab(0)" id="activetab">尖端科技</div>
-                    <div onmouseover="changetab(1)">网络研讨会</div>
-                    <div onmouseover="changetab(2)">食药资讯</div>
-                    <div onmouseover="changetab(3)">最新应用</div>
+            <!-- 网络研讨会 -->
+            <div class="hiddenbrief brief">
+                <div class="b">
+                    <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                    <div id="bt">
+                        网络研讨会1。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                    <div id="bt">
+                        网络研讨会2。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                    <div id="bt">
+                        网络研讨会3。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                    <div id="bt">
+                        网络研讨会4。
+                    </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
             </div>
-            <div class="briefs">
-                <!-- 尖端科技 -->
-                <div class="showbrief brief">
-                    <div class="b">
-                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
-                        <div id="bt">
-                            XTrac智能液体萃取平台可用于固体、液体中目标物质的自动提取，过滤实验，可用于农业、烟草、化学、食品、制药等行业。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+            <!-- 食药资讯 -->
+            <div class="hiddenbrief brief">
+                <div class="b">
+                    <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                    <div id="bt">
+                        食药资讯1。
                     </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
-                        <div id="bt">
-                            GraviTrac智能称量平台可用于大批量的称重、恒重实验，可用于制药、农业、烟草、化工、食品、制药等行业。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
-                        <div id="bt">
-                            MultiTasker智能多功能样品制备平台用于前处理样品的制备，可自动完成液体化的处理，标样的制备、提取、过滤等实验，可用于制药、食品、农业、化学等行业。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
-                        <div id="bt">
-                            GraviTracPLUS智能称重分装平台用于多种固体样品的自动称量及分装，混合可用于化学、食品、制药等行业。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
+                    <div id="learnmore">了解更多</div>
                 </div>
-                <!-- 网络研讨会 -->
-                <div class="hiddenbrief brief">
-                    <div class="b">
-                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
-                        <div id="bt">
-                            网络研讨会1。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                    <div id="bt">
+                        食药资讯2。
                     </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
-                        <div id="bt">
-                            网络研讨会2。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
-                        <div id="bt">
-                            网络研讨会3。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
-                        <div id="bt">
-                            网络研讨会4。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
+                    <div id="learnmore">了解更多</div>
                 </div>
-                <!-- 食药资讯 -->
-                <div class="hiddenbrief brief">
-                    <div class="b">
-                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
-                        <div id="bt">
-                            食药资讯1。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+                <div class="b">
+                    <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                    <div id="bt">
+                        食药资讯3。
                     </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
-                        <div id="bt">
-                            食药资讯2。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
-                        <div id="bt">
-                            食药资讯3。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
-                        <div id="bt">
-                            食药资讯4。
-                        </div>
-                        <div id="learnmore">了解更多</div>
-                    </div>
+                    <div id="learnmore">了解更多</div>
                 </div>
-                <!-- 最新应用 -->
-                <div class="hiddenbrief brief">
-                    <div class="b">
-                        <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
-                        <div id="bt">
-                            最新应用1。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                    <div id="bt">
+                        食药资讯4。
                     </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
-                        <div id="bt">
-                            最新应用2。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+            </div>
+            <!-- 最新应用 -->
+            <div class="hiddenbrief brief">
+                <div class="b">
+                    <div id="bp"><img src="image/XTrac.png" alt="XTrac"></div>
+                    <div id="bt">
+                        最新应用1。
                     </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
-                        <div id="bt">
-                            最新应用3。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
+                    <div id="bt">
+                        最新应用2。
                     </div>
-                    <div class="b">
-                        <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
-                        <div id="bt">
-                            最新应用4。
-                        </div>
-                        <div id="learnmore">了解更多</div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
+                    <div id="bt">
+                        最新应用3。
                     </div>
+                    <div id="learnmore">了解更多</div>
+                </div>
+                <div class="b">
+                    <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
+                    <div id="bt">
+                        最新应用4。
+                    </div>
+                    <div id="learnmore">了解更多</div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 简讯tab切换脚本 -->
-        <script>
-            var tabs = document.getElementsByClassName('category')[0].getElementsByTagName('div');
-            var contents = document.getElementsByClassName('briefs')[0].getElementsByClassName('brief');
+    <!-- 简讯tab切换脚本 -->
+    <script>
+        var tabs = document.getElementsByClassName('category')[0].getElementsByTagName('div');
+        var contents = document.getElementsByClassName('briefs')[0].getElementsByClassName('brief');
 
-            function changetab(index)
+        function changetab(index)
+        {
+            for (var i = 0; i < tabs.length; i++)
             {
-                for (var i = 0; i < tabs.length; i++)
+                if (i == index)
                 {
-                    if (i == index)
-                    {
-                        tabs[i].id = 'activetab';
-                        contents[i].className = 'showbrief brief';
-                    }
-                    else
-                    {
-                        tabs[i].id = 'commontab';
-                        contents[i].className = 'hiddenbrief brief';
-                    }
+                    tabs[i].id = 'activetab';
+                    contents[i].className = 'showbrief brief';
+                }
+                else
+                {
+                    tabs[i].id = 'commontab';
+                    contents[i].className = 'hiddenbrief brief';
                 }
             }
-        </script>
+        }
+    </script>
 
-        <!-- 介绍 -->
-        <div>
-            <div class="introduction">
-                <div class="left">
-                    <div class="intro">
-                        <div id="pic"><img src="image/xianhuo.png"></div>
-                        <div id="feature">大量现货</div>
-                        <div id="detail">现货产品4点前下单当天发货</div>
-                    </div>
-                    <div class="intro">
-                        <div id="pic"><img src="image/yunfei.png"></div>
-                        <div id="feature">满500免运费</div>
-                        <div id="detail">部分区域订单满500免运费</div>
-                    </div>
-                    <div class="intro">
-                        <div id="pic"><img src="image/zengzhishui.png"></div>
-                        <div id="feature">增值税专用发票</div>
-                        <div id="detail">可提供增值税专用发票</div>
-                    </div>
-                    <div class="intro">
-                        <div id="pic"><img src="image/peisong.png"></div>
-                        <div id="feature">快捷配送</div>
-                        <div id="detail">一件即发，享受快捷服务</div>
-                    </div>
+    <!-- 介绍 -->
+    <div>
+        <div class="introduction">
+            <div class="left">
+                <div class="intro">
+                    <div id="pic"><img src="image/xianhuo.png"></div>
+                    <div id="feature">大量现货</div>
+                    <div id="detail">现货产品4点前下单当天发货</div>
                 </div>
-                <div class="right">
-                    <div class="intro">
-                        <div id="pic"><img src="image/jiagedi.png"></div>
-                        <div id="feature">价格低</div>
-                        <div id="detail">力求最合适的产品配最优的价格</div>
-                    </div>
-                    <div class="intro">
-                        <div id="pic"><img src="image/huoqiduan.png"></div>
-                        <div id="feature">货期短</div>
-                        <div id="detail">专人负责，专业跟进，提高效率</div>        
-                    </div>
-                    <div class="intro">
-                        <div id="pic"><img src="image/pingzhong.png"></div>
-                        <div id="feature">品种多</div>
-                        <div id="detail">商品种类涵盖多个应用领域</div>        
-                    </div>
-                    <div class="intro">
-                        <div id="pic"><img src="image/baotuihuan.png"></div>
-                        <div id="feature">包退换</div>
-                        <div id="detail">有质量或者功能问题包退换</div>        
-                    </div>
-                </div>                
+                <div class="intro">
+                    <div id="pic"><img src="image/yunfei.png"></div>
+                    <div id="feature">满500免运费</div>
+                    <div id="detail">部分区域订单满500免运费</div>
+                </div>
+                <div class="intro">
+                    <div id="pic"><img src="image/zengzhishui.png"></div>
+                    <div id="feature">增值税专用发票</div>
+                    <div id="detail">可提供增值税专用发票</div>
+                </div>
+                <div class="intro">
+                    <div id="pic"><img src="image/peisong.png"></div>
+                    <div id="feature">快捷配送</div>
+                    <div id="detail">一件即发，享受快捷服务</div>
+                </div>
             </div>
+            <div class="right">
+                <div class="intro">
+                    <div id="pic"><img src="image/jiagedi.png"></div>
+                    <div id="feature">价格低</div>
+                    <div id="detail">力求最合适的产品配最优的价格</div>
+                </div>
+                <div class="intro">
+                    <div id="pic"><img src="image/huoqiduan.png"></div>
+                    <div id="feature">货期短</div>
+                    <div id="detail">专人负责，专业跟进，提高效率</div>        
+                </div>
+                <div class="intro">
+                    <div id="pic"><img src="image/pingzhong.png"></div>
+                    <div id="feature">品种多</div>
+                    <div id="detail">商品种类涵盖多个应用领域</div>        
+                </div>
+                <div class="intro">
+                    <div id="pic"><img src="image/baotuihuan.png"></div>
+                    <div id="feature">包退换</div>
+                    <div id="detail">有质量或者功能问题包退换</div>        
+                </div>
+            </div>                
         </div>
-
     </div>
 
 </body>
