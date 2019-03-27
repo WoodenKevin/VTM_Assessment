@@ -776,8 +776,8 @@ body
     }
     #pic
     {
-        width: 165px;
-        padding: 44px 10px 45px 125px;
+        width: 30px;
+        margin: 0 10px 0 125px;
     }
     #feature
     {
@@ -994,8 +994,8 @@ body
     }
     #pic
     {
-        width: 125px;
-        padding: 44px 10px 45px 85px;
+        width: 30px;
+        margin: 0 10px 0 85px;
     }
     #feature
     {
