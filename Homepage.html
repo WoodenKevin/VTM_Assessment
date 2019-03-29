@@ -71,6 +71,9 @@
 
     <!-- 回到顶部脚本 -->
     <script>
+        // 利用一个变量判断定时器是否清除，避免因按钮重复点击而重复定义定时器
+        var clicked = false;
+
         // 利用定时器实现缓冲动画
         function backtotopwithanimation()
         {
@@ -94,13 +97,25 @@
             {
                 // 返回顶部后，清除定时器
                 clearInterval(timer);
+                // 定时器已清除
+                clicked = false;
             }
         }
 
         function backtotop()
         {
-            // 定义一个定时器
-            timer = setInterval("backtotopwithanimation()", 20); 
+            if (document.body.scrollTop || document.documentElement.scrollTop == 0)
+            {
+                return false;
+            }
+            // 定时器未定义或已清除才执行
+            if (!clicked)
+            {
+                // 定义一个定时器
+                timer = setInterval("backtotopwithanimation()", 20); 
+                // 定时器已定义
+                clicked = true;
+            }
         }
     </script>
 
