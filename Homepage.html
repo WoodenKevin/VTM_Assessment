@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>热泉港官网</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="Homepage.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
 
     <!-- 侧边悬浮条 -->
     <div class="side">
-        <div onmouseover="showpopup()" onmouseout="hidepopup()" class="sidearea">
+        <div class="sidearea" id="qrbutton">
             <div id="sidepic"><img src="image/qrlogo.png"></div>
             <div id="sidetext">二维码</div>
         </div>
@@ -37,7 +38,7 @@
             <div id="sidepic"><img src="image/customerservice.png"></div>
             <div id="sidetext">在线客服</div>
         </div>
-        <div onclick="backtotop()" class="sidearea">
+        <div class="sidearea" id="backtotopbutton">
             <div id="sidepic"><img src="image/totop.png"></div>
             <div id="sidetext">回到顶部</div>
         </div>
@@ -56,68 +57,6 @@
             <div id="triangle"></div>
         </div>
     </div>
-
-    <!-- 二维码弹窗脚本 -->
-    <script>
-        function showpopup()
-        {
-            document.getElementsByClassName('popup')[0].style.display = 'block';
-        }
-        function hidepopup()
-        {
-            document.getElementsByClassName('popup')[0].style.display = 'none';
-        }
-    </script>
-
-    <!-- 回到顶部脚本 -->
-    <script>
-        // 利用一个变量判断定时器是否清除，避免因按钮重复点击而重复定义定时器
-        var clicked = false;
-
-        // 利用定时器实现缓冲动画
-        function backtotopwithanimation()
-        {
-            // 返回与顶部的距离
-            var top = document.body.scrollTop || document.documentElement.scrollTop; // 兼容Chrome浏览器（只认document.body）
-            // 使与顶部距离的递减值逐渐减小，达到缓冲动画效果
-            // 除数越大，返回顶部的整体速度越慢
-            var speed = top / 5;
-
-            if (document.body.scrollTop != 0) // 兼容Chrome浏览器，document.body和document.documentElement中只有一个有值
-            {
-                // 与顶部的距离逐渐减小
-                document.body.scrollTop -= speed;
-            }
-            else
-            {
-                document.documentElement.scrollTop -= speed;
-            }
-
-            if (top == 0)
-            {
-                // 返回顶部后，清除定时器
-                clearInterval(timer);
-                // 定时器已清除
-                clicked = false;
-            }
-        }
-
-        function backtotop()
-        {
-            if (document.body.scrollTop || document.documentElement.scrollTop == 0)
-            {
-                return false;
-            }
-            // 定时器未定义或已清除才执行
-            if (!clicked)
-            {
-                // 定义一个定时器
-                timer = setInterval("backtotopwithanimation()", 20); 
-                // 定时器已定义
-                clicked = true;
-            }
-        }
-    </script>
 
     <!-- 避免其余内容被顶部悬浮条遮挡 -->
     <div style="height: 36px;"></div> 
@@ -185,14 +124,14 @@
                 </form>
                 <div id="hot">
                     HOT关键词：
-                    <a>灭菌器</a> | 
-                    <a>离心管</a> |
-                    <a>手套</a> |
-                    <a>pH计</a> |
-                    <a>活性口罩</a> |
-                    <a>滤纸</a> |
-                    <a>胶头</a> |
-                    <a>三脚架</a>
+                    <a href="SearchResults.html">灭菌器</a> | 
+                    <a href="SearchResults.html">离心管</a> |
+                    <a href="SearchResults.html">手套</a> |
+                    <a href="SearchResults.html">pH计</a> |
+                    <a href="SearchResults.html">活性口罩</a> |
+                    <a href="SearchResults.html">滤纸</a> |
+                    <a href="SearchResults.html">胶头</a> |
+                    <a href="SearchResults.html">三脚架</a>
                 </div>
             </div>
         </div>
@@ -204,10 +143,10 @@
             / 更多资讯 /
         </div>
         <div class="category">
-                <div onmouseover="changetab(0)" id="activetab">尖端科技</div>
-                <div onmouseover="changetab(1)">网络研讨会</div>
-                <div onmouseover="changetab(2)">食药资讯</div>
-                <div onmouseover="changetab(3)">最新应用</div>
+            <div id="activetab">尖端科技</div>
+            <div>网络研讨会</div>
+            <div>食药资讯</div>
+            <div>最新应用</div>
         </div>
         <div class="briefs">
             <!-- 尖端科技 -->
@@ -217,28 +156,28 @@
                     <div id="bt">
                         XTrac智能液体萃取平台可用于固体、液体中目标物质的自动提取，过滤实验，可用于农业、烟草、化学、食品、制药等行业。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
                     <div id="bt">
                         GraviTrac智能称量平台可用于大批量的称重、恒重实验，可用于制药、农业、烟草、化工、食品、制药等行业。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
                     <div id="bt">
                         MultiTasker智能多功能样品制备平台用于前处理样品的制备，可自动完成液体化的处理，标样的制备、提取、过滤等实验，可用于制药、食品、农业、化学等行业。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
                     <div id="bt">
                         GraviTracPLUS智能称重分装平台用于多种固体样品的自动称量及分装，混合可用于化学、食品、制药等行业。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
             </div>
             <!-- 网络研讨会 -->
@@ -248,28 +187,28 @@
                     <div id="bt">
                         网络研讨会1。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
                     <div id="bt">
                         网络研讨会2。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
                     <div id="bt">
                         网络研讨会3。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
                     <div id="bt">
                         网络研讨会4。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
             </div>
             <!-- 食药资讯 -->
@@ -279,28 +218,28 @@
                     <div id="bt">
                         食药资讯1。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
                     <div id="bt">
                         食药资讯2。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
                     <div id="bt">
                         食药资讯3。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
                     <div id="bt">
                         食药资讯4。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
             </div>
             <!-- 最新应用 -->
@@ -310,55 +249,32 @@
                     <div id="bt">
                         最新应用1。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTrac.png" alt="GraviTrac"></div>
                     <div id="bt">
                         最新应用2。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/MultiTasker.png" alt="MultiTasker" id="bp"></div>
                     <div id="bt">
                         最新应用3。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
                 <div class="b">
                     <div id="bp"><img src="image/GraviTracPlus.png" alt="GraviTracPlus" id="bp"></div>
                     <div id="bt">
                         最新应用4。
                     </div>
-                    <div id="learnmore">了解更多</div>
+                    <div id="learnmore"><a href="LearnMore.html">了解更多</a></div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- 简讯tab切换脚本 -->
-    <script>
-        var tabs = document.getElementsByClassName('category')[0].getElementsByTagName('div');
-        var contents = document.getElementsByClassName('briefs')[0].getElementsByClassName('brief');
-
-        function changetab(index)
-        {
-            for (var i = 0; i < tabs.length; i++)
-            {
-                if (i == index)
-                {
-                    tabs[i].id = 'activetab';
-                    contents[i].className = 'showbrief brief';
-                }
-                else
-                {
-                    tabs[i].id = 'commontab';
-                    contents[i].className = 'hiddenbrief brief';
-                }
-            }
-        }
-    </script>
 
     <!-- 介绍 -->
     <div>

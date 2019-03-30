@@ -165,7 +165,7 @@
 
 ---
 
-##20190326 & 20190327
+##20190326 - 20190327
 
 - 进度
     - 使用媒体查询适配较低分辨率下的网页布局
@@ -180,3 +180,58 @@
 - 接下来的计划
     - 继续优化适配
     - 争取适配移动端
+
+---
+
+## 20190328 - 20190330
+
+- 进度
+    - 补全了网页中链接激活变色效果
+    - 优化返回顶部功能
+        - 解决了重复点击返回顶部按钮导致定时器重复定义的问题
+        - 禁止了返回顶部过程中鼠标的滚动事件
+        - 增加了对起始位置的判断
+    - 实现了HTML和JavaScript的分离
+    - 由于时间有限，以及对相关知识的掌握还不够全面，经过仔细考虑，放弃全面转为flex布局、转用rem及适配移动端的计划
+- 学习进度
+    - 深入了解了flex布局，但对flex兼容性问题还未完全掌握
+    - 研读《JavaScript DOM 编程艺术》，对DOM有了更深入的了解，特别是书里提到的“平稳退化、渐进增强”的理念给我的印象颇深。
+- 遇到的问题
+    1. 优化返回顶部功能时，我用了几行代码判断当用户按下“回到顶部”按钮时，先判断当前滚动条的高度，若已达顶部，则直接退出函数：
+        ```JavaScript
+        if (document.body.scrollTop || document.documentElement.scrollTop == 0)
+        {
+            return false;
+        }
+        ```
+        - 判断条件写为` document.body.scrollTop || document.documentElement.scrollTop == 0 `的原因是之前在网上看到了“`document.body`和`document.documentElement`中只有一个有值，而Chrome只认”的说法。
+        但保存后却发现Chrome能正常运行，而Edge却无法返回顶部。
+        - 在函数内添加以下代码：
+            ```JavaScript
+            alert("body: " + document.body.scrollTop);
+            alert("documentElement: " + document.documentElement.scrollTop);
+            ```
+            发现无论Chrome还是Edge，`document.body`和`document.documentElement`始终有值，只不过Chrome下`document.body.scrollTop`始终为0，Edge下`document.documentElement.scrollTop`始终为0。
+        - 经过一番仔细查询，得知不是“只有一个有值”，而是“**只有一个能取到值，此时另一个值为0**”；而至于在哪个浏览器中能取哪个值，实际结果貌似与目前在网上查询的结果是相反的，***有待进一步考证***。
+        - 最终代码的判断条件由原先的或运算改为并运算：
+            ```JavaScript
+            if (document.body.scrollTop && document.documentElement.scrollTop == 0)
+            {
+                return false;
+            }
+            ```
+- 存在的问题
+    - 布局效果看起来可能还行，但存在不同布局混用问题
+    - 目前仅在Chrome和Edge上测试，对于其它浏览器的显示效果还未验证
+    - Chrome缩放到50%以下会存在布局混乱问题（经测试，许多网站在Chrome缩放到50%以下时大都出现布局混乱。网上存在使用rem就能避免此问题的说法，但经局部测试好像并没能解决。***待后续继续查证***）
+    - 对不同浏览器的兼容性十分欠佳
+- 接下来的计划
+    - 虽然在10天的期限内，我已做出了基本符合设计稿的网站，并不断改进，但因时间关系，仍有一些遗憾。无论最后能不能通过考核，我都会更深入了解以下的这几点，并在此DEMO或其它DEMO上进行实践：
+        - “平稳退化、渐进增强”
+        - 各浏览器的兼容问题
+        - flex/grid布局
+        - 响应式布局
+        - 《JavaScript 高级编程》
+        - 性能更好的定时器requestAnimationFrame
+        - ......
+    - 解决上述提到的尚且存在的问题
